@@ -10,6 +10,7 @@ body {
     background-position: center;
     --accent-color: #007BFF;
     --accent-color-light: #6db3fe;
+    --accent-color-very-light: #cfe4fb;
     --primary-color: #333333;
 }
 
@@ -42,6 +43,7 @@ html, body {
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(3px);
+    font-size: 0.9rem;
 }
 
 .dashboard * {
@@ -61,15 +63,40 @@ html, body {
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
     grid-column: span 2;
     backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
 }
 
 
 .box .title {
     font-weight: 600;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    padding-right: 2.5rem;
+    min-height: 30px;
+    padding-top: 5px;
 }
 
-.box .title>i {
-    margin-right: 0.125rem;
+.box .title>.icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 100%;
+    background: var(--accent-color-very-light);
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box .title>.icon i {
+    margin: auto;
+    font-size: 0.85rem;
+    color: var(--accent-color)
 }
 
 
@@ -119,4 +146,14 @@ html, body {
 
 .dashboard a:hover {
     color: var(--accent-color-light);
+}
+
+.dashboard .key-info {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.dashboard .key-info .number {
+    color: var(--accent-color);
 }
