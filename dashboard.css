@@ -1,6 +1,4 @@
 .dashboard {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    background-color: rgba(255, 255, 255, 0.4);
     max-width: 640px;
     padding: 1.75rem 1.25rem;
     margin: auto;
@@ -10,16 +8,21 @@
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     align-items: start;
-    backdrop-filter: blur(3px);
     font-size: 0.9rem;
+}
+
+.dashboard, .box {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .dashboard * {
     color: var(--primary-color);
-}
-
-.box, .dashboard {
-    border-radius: 0.5rem;
 }
 
 .box {
@@ -27,12 +30,11 @@
     height: auto;
     min-height: 100px;
     padding: 1rem;
-    background-color: rgba(255, 255, 255, 0.7);
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
     grid-column: span 2;
-    backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
+    background: rgba(255, 255, 255, 0.7) !important;
+    border: none !important;
 }
 
 
