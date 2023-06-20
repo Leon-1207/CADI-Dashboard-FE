@@ -1,0 +1,154 @@
+.dashboard {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.4);
+    max-width: 640px;
+    padding: 1rem;
+    margin: auto;
+    width: auto;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(3px);
+    font-size: 0.9rem;
+}
+
+.dashboard * {
+    color: var(--primary-color);
+}
+
+.box, .dashboard {
+    border-radius: 0.5rem;
+}
+
+.box {
+    width: 100%;
+    height: auto;
+    min-height: 100px;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    grid-column: span 2;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+}
+
+
+.box .title {
+    font-weight: 600;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    padding-right: 2.5rem;
+    min-height: 30px;
+    padding-top: 5px;
+    margin-bottom: 0.75rem;
+}
+
+.box .title>.icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 100%;
+    background: var(--accent-color-very-light);
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box .title>.icon i {
+    margin: auto;
+    font-size: 0.85rem;
+    color: var(--accent-color)
+}
+
+
+.dashboard .box> :first-child:not(.title) {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.small-box {
+    grid-column: span 1 !important;
+}
+
+@media (max-width: 480px) {
+    .dashboard .dashboard-headline {
+        font-size: 2rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .small-box {
+        grid-column: span 2 !important;
+        /* Applied when the screen width is <= 480px */
+    }
+}
+
+
+.dashboard p {
+    margin: 0;
+    text-align: left;
+}
+
+
+.dashboard-headline {
+    font-size: 3rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-align: center;
+    grid-column: span 2;
+}
+
+
+.dashboard a, .dashboard a *, .dashboard .link {
+    text-decoration: none;
+    color: var(--accent-color);
+}
+
+.dashboard a:hover, .dashboard a:hover *,
+.dashboard .link:hover {
+    color: var(--accent-color-light);
+}
+
+.dashboard .key-info {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.option-with-icon {
+    display: grid;
+    grid-template-columns: 18px auto;
+    align-items: center;
+    cursor: pointer;
+}
+
+.option-with-icon :first-child {
+    width: 18px;
+    margin-right: 3px;
+}
+
+.option-with-icon * {
+    color: var(--accent-color);
+}
+
+.option-with-icon:hover * {
+    color: var(--accent-color-light);
+}
+
+.option-with-icon> :last-child {
+    margin-right: auto;
+}
+
+.dashboard button {
+    background: none;
+    border: none;
+    text-align: left;
+}
