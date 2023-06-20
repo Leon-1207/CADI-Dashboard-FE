@@ -152,3 +152,7 @@
     border: none;
     text-align: left;
 }
+
+.box .box-footer {
+    margin-top: 1rem;
+}
