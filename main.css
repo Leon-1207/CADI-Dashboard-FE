@@ -77,6 +77,7 @@ html, body {
     padding-right: 2.5rem;
     min-height: 30px;
     padding-top: 5px;
+    margin-bottom: 0.75rem;
 }
 
 .box .title>.icon {
@@ -149,11 +150,6 @@ html, body {
 }
 
 .dashboard .key-info {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 600;
-    margin-top: 0.5rem;
-}
-
-.dashboard .key-info .number {
-    color: var(--accent-color);
 }
