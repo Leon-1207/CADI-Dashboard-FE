@@ -8,7 +8,6 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='dashboard.css'>
-    <link rel="stylesheet" href="path/to/font-awesome/css/all.min.css">
 </head>
 
 <body>
@@ -29,9 +28,9 @@
                     3 Anmeldungen
                 </span>
                 <div class="box-footer">
-                    <a href="" style="float: right;">
+                    <button class="link" id="show-new-customers-button" style="float: right;">
                         Details <i class="fas fa-arrow-right"></i>
-                    </a>
+                    </button>
                 </div>
             </div>
 
@@ -46,9 +45,43 @@
                     44 Personen
                 </span>
                 <div class="box-footer">
-                    <a href="" style="float: right;">
+                    <button class="link" id="show-all-customers-button" style="float: right;">
                         Details <i class="fas fa-arrow-right"></i>
-                    </a>
+                    </button>
+                </div>
+            </div>
+
+            <div id="new-customers-box" class="box box-closed toggle-box" style="height: 0;">
+                <span class="title">
+                    <span>Neue Anmeldungen</span>
+                    <div class="icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                </span>
+                <p>Max Mustermann</p>
+                <p>Tim Mustermann</p>
+                <p>Tim Tester</p>
+                <div class="box-footer">
+                    <button id="hide-new-customers-button" class="link" style="float: right;">
+                        Schließen
+                    </button>
+                </div>
+            </div>
+
+            <div id="all-customers-box" class="box box-closed toggle-box" style="height: 0;">
+                <span class="title">
+                    <span>Bisher angemeldet und bestätigt</span>
+                    <div class="icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </span>
+                <p>Max Mustermann</p>
+                <p>Tim Mustermann</p>
+                <p>Tim Tester</p>
+                <div class="box-footer">
+                    <button id="hide-all-customers-button" class="link" style="float: right;">
+                        Schließen
+                    </button>
                 </div>
             </div>
 
@@ -113,6 +146,40 @@
     </div>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         crossorigin="anonymous">
+
+    <script>
+        const ANIMATION_DURATION = 300;
+        const showNewCustomersButton = document.getElementById('show-new-customers-button');
+        const hideNewCustomersButton = document.getElementById('hide-new-customers-button');
+        const newCustomersBox = document.getElementById('new-customers-box');
+        const showAllCustomersButton = document.getElementById('show-all-customers-button');
+        const hideAllCustomersButton = document.getElementById('hide-all-customers-button');
+        const allCustomersBox = document.getElementById('all-customers-box');
+
+        function setVisibility(box, visibility) {
+            if (box.classList.contains("box-closed") === visibility) {
+                box.classList.toggle("box-closed")
+                box.style.height = visibility ? `${box.scrollHeight + 16 * 2}px` : 0
+            }
+        }
+
+        showNewCustomersButton.addEventListener('click', () => {
+            const delay = allCustomersBox.classList.contains("box-closed") ? 0 : ANIMATION_DURATION;
+            setTimeout(() => setVisibility(newCustomersBox, true), delay);
+            setVisibility(allCustomersBox, false)
+        })
+        hideNewCustomersButton.addEventListener('click', () => {
+            setVisibility(newCustomersBox, false)
+        })
+        showAllCustomersButton.addEventListener('click', () => {
+            const delay = newCustomersBox.classList.contains("box-closed") ? 0 : ANIMATION_DURATION;
+            setTimeout(() => setVisibility(allCustomersBox, true), delay);
+            setVisibility(newCustomersBox, false)
+        })
+        hideAllCustomersButton.addEventListener('click', () => {
+            setVisibility(allCustomersBox, false)
+        })
+    </script>
 </body>
 
 </html>
