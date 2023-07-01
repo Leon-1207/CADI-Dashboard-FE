@@ -66,7 +66,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const popupOverlay = document.querySelector(".popup-overlay");
   const popupContent = document.querySelector(".popup-content");
 
-  table.addEventListener("click", function (event) {
+  const tbody = table.tBodies.item(0)
+  tbody.addEventListener("click", function (event) {
     const target = event.target.closest("tr");
 
     if (target) {

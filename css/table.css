@@ -1,22 +1,27 @@
 .dashboard table {
     width: 100%;
     border-collapse: collapse;
-    font-family: Arial, sans-serif;
 }
 
 .dashboard th {
     cursor: pointer;
-    background-color: #f2f2f2;
-    color: #444;
+    color: var(--primary-color);
     text-align: left;
     padding: 8px;
 }
 
-.dashboard td {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
+.dashboard th:hover {
+    color: var(--accent-color);
 }
 
-.dashboard tr:hover {
-    background-color: #f5f5f5;
+.dashboard td {
+    padding: 8px;
+}
+
+.dashboard tbody tr {
+    cursor: pointer;
+}
+
+.dashboard tbody tr:hover {
+    background-color: #ffffff61;
 }
