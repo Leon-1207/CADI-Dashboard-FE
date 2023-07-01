@@ -70,9 +70,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const target = event.target.closest("tr");
 
     if (target) {
-      popupContent.innerHTML = target.innerHTML;
+      //popupContent.innerHTML = target.innerHTML;
       popupOverlay.style.display = "block";
-      popupContent.classList.add("open");
+      popupContent.classList.remove("close"); // Remove the closing animation class
+      popupContent.classList.add("open"); // Add the opening animation class
 
       document.addEventListener("click", closePopup);
     }

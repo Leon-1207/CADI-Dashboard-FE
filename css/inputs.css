@@ -42,7 +42,7 @@ input:focus~label, input:valid~label {
 }
 
 /* Fontawesome in label */
-label > i {
+label>i {
     font-size: 0.8em;
     margin-right: 0.125em;
 }
@@ -128,4 +128,12 @@ input:focus~.highlight {
         width: 0;
         background: transparent;
     }
+}
+
+input[type=date]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+
+input[type=date]:focus:invalid::-webkit-datetime-edit {
+    color: var(--primary-color);
 }
