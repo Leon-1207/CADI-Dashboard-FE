@@ -165,9 +165,17 @@
             }
         }
 
+        function scrollToBoxAfterDelay(box) {
+            const delay = Math.round(ANIMATION_DURATION / 2);
+            setTimeout(() => box.scrollIntoView({ behavior: "smooth" }), delay);
+        }
+
         showNewCustomersButton.addEventListener('click', () => {
             const delay = allCustomersBox.classList.contains("box-closed") ? 0 : ANIMATION_DURATION;
-            setTimeout(() => setVisibility(newCustomersBox, true), delay);
+            setTimeout(() => {
+                setVisibility(newCustomersBox, true)
+                scrollToBoxAfterDelay(newCustomersBox);
+            }, delay);
             setVisibility(allCustomersBox, false)
         })
         hideNewCustomersButton.addEventListener('click', () => {
@@ -175,7 +183,10 @@
         })
         showAllCustomersButton.addEventListener('click', () => {
             const delay = newCustomersBox.classList.contains("box-closed") ? 0 : ANIMATION_DURATION;
-            setTimeout(() => setVisibility(allCustomersBox, true), delay);
+            setTimeout(() => {
+                setVisibility(allCustomersBox, true)
+                scrollToBoxAfterDelay(allCustomersBox);
+            }, delay);
             setVisibility(newCustomersBox, false)
         })
         hideAllCustomersButton.addEventListener('click', () => {
