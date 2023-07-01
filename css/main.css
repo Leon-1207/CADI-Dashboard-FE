@@ -12,6 +12,7 @@ body {
     --accent-color-light: #6db3fe;
     --accent-color-very-light: #cfe4fb;
     --primary-color: #333333;
+    --primary-color-light: #4f4f4f;
 }
 
 html, body {

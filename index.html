@@ -6,8 +6,10 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Dashboard</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='dashboard.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/dashboard.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/table.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/inputs.css'>
 </head>
 
 <body>
@@ -58,9 +60,50 @@
                         <i class="fas fa-user-plus"></i>
                     </div>
                 </span>
-                <p>Max Mustermann</p>
-                <p>Tim Mustermann</p>
-                <p>Tim Tester</p>
+
+                <div class="group">
+                    <input id="search" type="text" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>
+                        <i class="fas fa-search"></i>
+                        <span>Suche nach Reisenden</span>
+                    </label>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-sort="asc">Vorname</th>
+                            <th data-sort="">Nachname</th>
+                            <th data-sort="">Anmeldedatum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>2021-06-15</td>
+                        </tr>
+                        <tr>
+                            <td>Jane</td>
+                            <td>Smith</td>
+                            <td>2021-07-02</td>
+                        </tr>
+                        <tr>
+                            <td>Michael</td>
+                            <td>Johnson</td>
+                            <td>2021-08-10</td>
+                        </tr>
+                        <tr>
+                            <td>Sarah</td>
+                            <td>Williams</td>
+                            <td>2021-09-05</td>
+                        </tr>
+                        <!-- Add more rows here -->
+                    </tbody>
+                </table>
+
                 <div class="box-footer">
                     <button id="hide-new-customers-button" class="link" style="float: right;">
                         Schließen
@@ -149,50 +192,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         crossorigin="anonymous">
 
-    <script>
-        const ANIMATION_DURATION = 300;
-        const showNewCustomersButton = document.getElementById('show-new-customers-button');
-        const hideNewCustomersButton = document.getElementById('hide-new-customers-button');
-        const newCustomersBox = document.getElementById('new-customers-box');
-        const showAllCustomersButton = document.getElementById('show-all-customers-button');
-        const hideAllCustomersButton = document.getElementById('hide-all-customers-button');
-        const allCustomersBox = document.getElementById('all-customers-box');
-
-        function setVisibility(box, visibility) {
-            if (box.classList.contains("box-closed") === visibility) {
-                box.classList.toggle("box-closed")
-                box.style.height = visibility ? `${box.scrollHeight + 16 * 2}px` : 0
-            }
-        }
-
-        function scrollToBoxAfterDelay(box) {
-            const delay = Math.round(ANIMATION_DURATION / 2);
-            setTimeout(() => box.scrollIntoView({ behavior: "smooth" }), delay);
-        }
-
-        showNewCustomersButton.addEventListener('click', () => {
-            const delay = allCustomersBox.classList.contains("box-closed") ? 0 : ANIMATION_DURATION;
-            setTimeout(() => {
-                setVisibility(newCustomersBox, true)
-                scrollToBoxAfterDelay(newCustomersBox);
-            }, delay);
-            setVisibility(allCustomersBox, false)
-        })
-        hideNewCustomersButton.addEventListener('click', () => {
-            setVisibility(newCustomersBox, false)
-        })
-        showAllCustomersButton.addEventListener('click', () => {
-            const delay = newCustomersBox.classList.contains("box-closed") ? 0 : ANIMATION_DURATION;
-            setTimeout(() => {
-                setVisibility(allCustomersBox, true)
-                scrollToBoxAfterDelay(allCustomersBox);
-            }, delay);
-            setVisibility(newCustomersBox, false)
-        })
-        hideAllCustomersButton.addEventListener('click', () => {
-            setVisibility(allCustomersBox, false)
-        })
-    </script>
+    <script src="js/toggleDashboardBoxes.js"></script>
+    <script src="js/table.js"></script>
+    <script src="js/openPopups.js"></script>
 </body>
 
 </html>
