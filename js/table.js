@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const table = document.querySelector("table");
   const headers = table.querySelectorAll("th");
+  const icons = ["&uarr;", "&darr;", "↑", "↓"]
   headers.forEach(function (header) {
     header.addEventListener("click", function () {
       const sortOrder = this.dataset.sort === "asc" ? "desc" : "asc";
@@ -9,6 +10,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
       sortTable(columnIndex, sortOrder);
       this.dataset.sort = sortOrder;
+
+      // Reset icons for all headers
+      headers.forEach(function (header) {
+        let textWithoutIcons = header.textContent;
+        icons.forEach((iconStr) => textWithoutIcons = textWithoutIcons.replace(iconStr, ""))
+        header.innerHTML = textWithoutIcons.trim();
+      });
+
+      // Set icon for the clicked header
+      const icon = sortOrder === "asc" ? icons[0] : icons[1];
+      this.innerHTML = `${this.textContent} ${icon}`;
     });
   });
 
